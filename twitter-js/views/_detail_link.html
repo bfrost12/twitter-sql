@@ -1,0 +1,6 @@
+{% if mode == 'ALL' %}
+  <a href="/tweets/{{tweet.name}}">Details</a>
+{% endif %}
+{% if mode == 'USER' %}
+<a href="/tweets/{{tweet.name}}/tweet/{{tweet.id}}">Details</a>
+{% endif %}

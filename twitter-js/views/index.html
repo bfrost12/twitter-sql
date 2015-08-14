@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+  {% include "_form.html" %}
+  {% include "_back_link.html" %}
+  <ul class="list-group">
+  {% for tweet in tweets %}
+  {% include "_tweet.html" %}
+  {% endfor %}
+  </ul>
+{% endblock %}

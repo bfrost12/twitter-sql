@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="alert alert-warning">
+  {% for key in Object.getOwnPropertyNames(error) %}
+  {{key}}: <b>{{error[key]}}</b>
+    <br />
+  {% endfor %}
+</div>
+{% endblock %}
