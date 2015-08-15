@@ -1,11 +1,12 @@
 var _ = require("underscore");
+var tweetdb = require("../models/index.js");
 
 module.exports = {
   list: list,
   add: add,
   find: find
 }
-
+/*
 var data = [
   {
     id: 1,
@@ -22,10 +23,17 @@ var data = [
     name: "Nimit",
     text: "JS Rocks"
   }
-];
+];*/
 
 function list(cb){
-  cb(null, _.clone(data));
+  var tweets = tweetdb.Tweet.findAll().then(function(tweetList) {
+    tweetList = tweetList.map(function(t){
+      return t.dataValues;
+    });
+    console.log(tweetList);
+    return tweetList;
+  });
+  cb(null, tweets);
 }
 
 function add(tweet, cb){

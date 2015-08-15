@@ -1,6 +1,5 @@
 var express = require("express");
-var tweetBank = require("../tweet-bank");
-
+var tweetBank = require("../tweet-bank.js")
 var app = express.Router();
 
 app.post("/submit", function(req, res){
@@ -8,6 +7,7 @@ app.post("/submit", function(req, res){
     res.redirect("/tweets/" + tweet.name);
   });
 });
+
 app.get("/:name", function(req, res){
   tweetBank.find(
     { name: req.params.name },
